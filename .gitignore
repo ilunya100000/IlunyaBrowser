@@ -10,3 +10,4 @@ packaging/dist/
 packaging/rpmbuild/
 packaging/gentoo-overlay/
 /debian/
+.aur-deploy/

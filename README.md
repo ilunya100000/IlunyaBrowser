@@ -26,18 +26,9 @@ build.bat
 yay -S ilunyabrowser
 ```
 
-- AUR: https://aur.archlinux.org/packages/ilunyabrowser
-- AUR mirror (PKGBUILD): https://github.com/ilunya100000/ilunyabrowser-aur
+AUR: https://aur.archlinux.org/packages/ilunyabrowser
 
-If the package is not in AUR yet, install from the mirror:
-
-```bash
-git clone https://github.com/ilunya100000/ilunyabrowser-aur.git
-cd ilunyabrowser-aur
-makepkg -si
-```
-
-Or from this repository:
+Fallback from repository:
 
 ```bash
 yay -S ./packaging/arch
