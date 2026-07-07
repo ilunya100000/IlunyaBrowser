@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=IlunyaBrowser
+GenericName=Web Browser
+Comment=Minimal Chromium-based browser focused on low RAM usage
+Exec=ilunyabrowser %u
+Icon=ilunyabrowser
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=IlunyaBrowser
+Keywords=browser;web;chromium;google;

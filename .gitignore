@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+*.spec
+packaging/dist/
+packaging/rpmbuild/
+packaging/gentoo-overlay/
+debian/

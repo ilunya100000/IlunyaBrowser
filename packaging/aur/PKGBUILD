@@ -1,0 +1,49 @@
+# Maintainer: izosi
+# AUR: https://aur.archlinux.org/packages/ilunyabrowser
+# Install: yay -S ilunyabrowser
+
+pkgname=ilunyabrowser
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Minimal Chromium-based browser focused on low RAM usage"
+arch=('any')
+url="https://github.com/izosi/IlunyaBrowser"
+license=('MIT')
+depends=(
+  'python>=3.10'
+  'python-pyqt6'
+  'python-pyqt6-webengine'
+)
+optdepends=(
+  'noto-fonts: improved font rendering'
+  'ttf-dejavu: fallback fonts'
+)
+source=("$pkgname-$pkgver.tar.gz::https://github.com/izosi/IlunyaBrowser/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('0000000000000000000000000000000000000000000000000000000000000000')
+
+prepare() {
+  mv "IlunyaBrowser-$pkgver" "$pkgname-$pkgver"
+}
+
+package() {
+  local root="$srcdir/$pkgname-$pkgver"
+  local pkgdir_share="$pkgdir/usr/share/ilunyabrowser"
+
+  install -dm755 "${pkgdir}/usr/bin"
+  install -dm755 "${pkgdir_share}"
+  install -dm755 "${pkgdir}/usr/share/applications"
+  install -dm755 "${pkgdir}/usr/share/icons/hicolor/256x256/apps"
+
+  install -Dm755 "${root}/packaging/linux/ilunyabrowser" "${pkgdir}/usr/bin/ilunyabrowser"
+  install -Dm644 "${root}/ilunya_browser.py" "${pkgdir_share}/ilunya_browser.py"
+  install -Dm644 "${root}/make_icon.py" "${pkgdir_share}/make_icon.py"
+  install -Dm644 "${root}/requirements-linux.txt" "${pkgdir_share}/requirements-linux.txt"
+  install -Dm644 "${root}/VERSION" "${pkgdir_share}/VERSION"
+  install -Dm644 "${root}/packaging/linux/ilunyabrowser.desktop" \
+    "${pkgdir}/usr/share/applications/ilunyabrowser.desktop"
+
+  if [[ -f "${root}/assets/icon.png" ]]; then
+    install -Dm644 "${root}/assets/icon.png" \
+      "${pkgdir}/usr/share/icons/hicolor/256x256/apps/ilunyabrowser.png"
+  fi
+}

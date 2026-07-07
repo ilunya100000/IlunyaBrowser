@@ -1,0 +1,64 @@
+IlunyaBrowser — Linux installation
+==================================
+
+Arch Linux (yay)
+----------------
+From the repository root:
+
+  chmod +x packaging/arch/install-yay.sh
+  ./packaging/arch/install-yay.sh
+
+Or manually:
+
+  yay -S ./packaging/arch
+
+After publishing to AUR:
+
+  yay -S ilunyabrowser
+
+
+Debian / Ubuntu
+---------------
+Install build dependencies:
+
+  sudo apt install build-essential debhelper python3-pyqt6 python3-pyqt6.qtwebengine
+
+Build and install:
+
+  chmod +x packaging/debian/build-deb.sh
+  ./packaging/debian/build-deb.sh
+  sudo apt install ../ilunyabrowser_1.0.0-1_all.deb
+
+
+Fedora / RHEL / Rocky / AlmaLinux
+---------------------------------
+Install build dependencies:
+
+  sudo dnf install rpm-build python3-pyqt6 python3-pyqt6-webengine
+
+Build and install:
+
+  chmod +x packaging/rpm/build-rpm.sh
+  ./packaging/rpm/build-rpm.sh
+  sudo dnf install packaging/rpmbuild/RPMS/noarch/ilunyabrowser-*.rpm
+
+
+Gentoo
+------
+Prepare a local overlay:
+
+  chmod +x packaging/gentoo/prepare-overlay.sh
+  ./packaging/gentoo/prepare-overlay.sh
+
+Then:
+
+  sudo eselect repository add ilunyabrowser packaging/gentoo-overlay/ilunyabrowser
+  sudo emerge --sync ilunyabrowser
+  sudo emerge -av www-client/ilunyabrowser
+
+
+Run
+---
+  ilunyabrowser
+
+Or find IlunyaBrowser in the application menu.

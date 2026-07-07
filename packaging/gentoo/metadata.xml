@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>ilunyabrowser@localhost</email>
+		<name>IlunyaBrowser contributors</name>
+	</maintainer>
+	<longdescription>
+		IlunyaBrowser is a lightweight web browser built on Qt WebEngine (Chromium).
+		It provides Google search, multi-tab browsing, and aggressive memory
+		optimizations for inactive tabs.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">izosi/IlunyaBrowser</remote-id>
+	</upstream>
+</pkgmetadata>
