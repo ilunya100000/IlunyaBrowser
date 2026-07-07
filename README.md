@@ -48,7 +48,7 @@ makepkg -si
 Download **ilunyabrowser_1.0.0-1_all.deb** from [Releases](https://github.com/ilunya100000/IlunyaBrowser/releases/latest) and install:
 
 ```bash
-sudo apt install ./ilunyabrowser_1.0.0-1_all.deb
+sudo apt install ./ilunyabrowser_1.0.1-1_all.deb
 ```
 
 Build from source:

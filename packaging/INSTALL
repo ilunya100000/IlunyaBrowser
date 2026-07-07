@@ -21,8 +21,8 @@ Debian / Ubuntu
 ---------------
 From release:
 ```bash
-wget https://github.com/ilunya100000/IlunyaBrowser/releases/latest/download/ilunyabrowser_1.0.0-1_all.deb
-sudo apt install ./ilunyabrowser_1.0.0-1_all.deb
+wget https://github.com/ilunya100000/IlunyaBrowser/releases/latest/download/ilunyabrowser_1.0.1-1_all.deb
+sudo apt install ./ilunyabrowser_1.0.1-1_all.deb
 ```
 
 Build from source:
