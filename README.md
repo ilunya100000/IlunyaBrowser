@@ -45,7 +45,7 @@ makepkg -si
 
 ### Debian / Ubuntu
 
-Download **ilunyabrowser_1.0.0-1_all.deb** from [Releases](https://github.com/ilunya100000/IlunyaBrowser/releases/latest) and install:
+Download **ilunyabrowser_1.0.1-1_all.deb** from [Releases](https://github.com/ilunya100000/IlunyaBrowser/releases/latest) and install:
 
 ```bash
 sudo apt install ./ilunyabrowser_1.0.1-1_all.deb
@@ -56,7 +56,7 @@ Build from source:
 ```bash
 sudo apt install build-essential debhelper python3-pyqt6 python3-pyqt6.qtwebengine
 ./packaging/debian/build-deb.sh
-sudo apt install ../ilunyabrowser_1.0.0-1_all.deb
+sudo apt install ../ilunyabrowser_1.0.1-1_all.deb
 ```
 
 ### Fedora / RHEL / Rocky / AlmaLinux
