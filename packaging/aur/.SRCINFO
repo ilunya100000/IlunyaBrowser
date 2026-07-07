@@ -2,7 +2,7 @@ pkgbase = ilunyabrowser
 	pkgdesc = Minimal Chromium-based browser focused on low RAM usage
 	pkgver = 1.0.0
 	pkgrel = 1
-	url = https://github.com/izosi/IlunyaBrowser
+	url = https://github.com/ilunya100000/IlunyaBrowser
 	arch = any
 	license = MIT
 	depends = python>=3.10
@@ -10,5 +10,5 @@ pkgbase = ilunyabrowser
 	depends = python-pyqt6-webengine
 	optdepends = noto-fonts: improved font rendering
 	optdepends = ttf-dejavu: fallback fonts
-	source = ilunyabrowser-1.0.0.tar.gz::https://github.com/izosi/IlunyaBrowser/archive/refs/tags/v1.0.0.tar.gz
+	source = ilunyabrowser-1.0.0.tar.gz::https://github.com/ilunya100000/IlunyaBrowser/archive/refs/tags/v1.0.0.tar.gz
 	sha256sums = 0000000000000000000000000000000000000000000000000000000000000000

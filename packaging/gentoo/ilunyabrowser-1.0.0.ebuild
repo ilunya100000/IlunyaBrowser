@@ -6,8 +6,8 @@ EAPI=8
 inherit desktop xdg
 
 DESCRIPTION="Minimal Chromium-based browser focused on low RAM usage"
-HOMEPAGE="https://github.com/izosi/IlunyaBrowser"
-SRC_URI="https://github.com/izosi/IlunyaBrowser/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/ilunya100000/IlunyaBrowser"
+SRC_URI="https://github.com/ilunya100000/IlunyaBrowser/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

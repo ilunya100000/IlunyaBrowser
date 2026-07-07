@@ -1,5 +1,5 @@
 param(
-    [string]$GithubUser = "izosi",
+    [string]$GithubUser = "ilunya100000",
     [string]$RepoName = "IlunyaBrowser",
     [string]$Version = "1.0.0"
 )

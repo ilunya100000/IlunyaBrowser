@@ -9,7 +9,7 @@ Features:
 
 ## Windows
 
-Download **IlunyaBrowser.exe** from [Releases](https://github.com/izosi/IlunyaBrowser/releases/latest) and run it.
+Download **IlunyaBrowser.exe** from [Releases](https://github.com/ilunya100000/IlunyaBrowser/releases/latest) and run it.
 
 Or build from source:
 

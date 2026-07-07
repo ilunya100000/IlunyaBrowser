@@ -2,7 +2,7 @@ pkgbase = ilunyabrowser
 	pkgdesc = Minimal Chromium-based browser focused on low RAM usage
 	pkgver = 1.0.0
 	pkgrel = 1
-	url = https://github.com/izosi/IlunyaBrowser
+	url = https://github.com/ilunya100000/IlunyaBrowser
 	arch = any
 	license = MIT
 	depends = python>=3.10

@@ -1,4 +1,4 @@
-# Maintainer: izosi
+# Maintainer: ilunya100000
 # AUR: https://aur.archlinux.org/packages/ilunyabrowser
 # Install: yay -S ilunyabrowser
 
@@ -7,7 +7,7 @@ pkgver=1.0.0
 pkgrel=1
 pkgdesc="Minimal Chromium-based browser focused on low RAM usage"
 arch=('any')
-url="https://github.com/izosi/IlunyaBrowser"
+url="https://github.com/ilunya100000/IlunyaBrowser"
 license=('MIT')
 depends=(
   'python>=3.10'
@@ -18,7 +18,7 @@ optdepends=(
   'noto-fonts: improved font rendering'
   'ttf-dejavu: fallback fonts'
 )
-source=("$pkgname-$pkgver.tar.gz::https://github.com/izosi/IlunyaBrowser/archive/refs/tags/v$pkgver.tar.gz")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/ilunya100000/IlunyaBrowser/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('0000000000000000000000000000000000000000000000000000000000000000')
 
 prepare() {
