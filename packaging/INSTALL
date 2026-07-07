@@ -3,62 +3,53 @@ IlunyaBrowser — Linux installation
 
 Arch Linux (yay)
 ----------------
-From the repository root:
+```bash
+yay -S ilunyabrowser
+```
 
-  chmod +x packaging/arch/install-yay.sh
-  ./packaging/arch/install-yay.sh
+AUR: https://aur.archlinux.org/packages/ilunyabrowser
 
-Or manually:
+Mirror: https://github.com/ilunya100000/ilunyabrowser-aur
 
-  yay -S ./packaging/arch
-
-After publishing to AUR:
-
-  yay -S ilunyabrowser
-
+Publish to AUR (maintainers):
+1. Create account at https://aur.archlinux.org/
+2. Add SSH public key in account settings
+3. Add the matching private key as GitHub secret `AUR_SSH_PRIVATE_KEY`
+4. Run GitHub Action: Publish AUR
 
 Debian / Ubuntu
 ---------------
-Install build dependencies:
+From release:
+```bash
+wget https://github.com/ilunya100000/IlunyaBrowser/releases/latest/download/ilunyabrowser_1.0.0-1_all.deb
+sudo apt install ./ilunyabrowser_1.0.0-1_all.deb
+```
 
-  sudo apt install build-essential debhelper python3-pyqt6 python3-pyqt6.qtwebengine
-
-Build and install:
-
-  chmod +x packaging/debian/build-deb.sh
-  ./packaging/debian/build-deb.sh
-  sudo apt install ../ilunyabrowser_1.0.0-1_all.deb
-
+Build from source:
+```bash
+sudo apt install build-essential debhelper python3-pyqt6 python3-pyqt6.qtwebengine
+./packaging/debian/build-deb.sh
+sudo apt install ../ilunyabrowser_1.0.0-1_all.deb
+```
 
 Fedora / RHEL / Rocky / AlmaLinux
 ---------------------------------
-Install build dependencies:
-
-  sudo dnf install rpm-build python3-pyqt6 python3-pyqt6-webengine
-
-Build and install:
-
-  chmod +x packaging/rpm/build-rpm.sh
-  ./packaging/rpm/build-rpm.sh
-  sudo dnf install packaging/rpmbuild/RPMS/noarch/ilunyabrowser-*.rpm
-
+```bash
+./packaging/rpm/build-rpm.sh
+sudo dnf install packaging/rpmbuild/RPMS/noarch/ilunyabrowser-*.rpm
+```
 
 Gentoo
 ------
-Prepare a local overlay:
-
-  chmod +x packaging/gentoo/prepare-overlay.sh
-  ./packaging/gentoo/prepare-overlay.sh
-
-Then:
-
-  sudo eselect repository add ilunyabrowser packaging/gentoo-overlay/ilunyabrowser
-  sudo emerge --sync ilunyabrowser
-  sudo emerge -av www-client/ilunyabrowser
-
+```bash
+./packaging/gentoo/prepare-overlay.sh
+sudo eselect repository add ilunyabrowser packaging/gentoo-overlay/ilunyabrowser
+sudo emerge --sync ilunyabrowser
+sudo emerge -av www-client/ilunyabrowser
+```
 
 Run
 ---
-  ilunyabrowser
-
-Or find IlunyaBrowser in the application menu.
+```bash
+ilunyabrowser
+```

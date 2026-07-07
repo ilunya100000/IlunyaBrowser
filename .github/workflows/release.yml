@@ -28,7 +28,7 @@ jobs:
         run: |
           pyinstaller --noconfirm --onefile --windowed --name IlunyaBrowser --icon assets\icon.ico --add-data "assets\icon.ico;assets" ilunya_browser.py
 
-      - name: Publish release
+      - name: Publish Windows release asset
         uses: softprops/action-gh-release@v2
         with:
           files: dist/IlunyaBrowser.exe
@@ -37,9 +37,33 @@ jobs:
             ## Windows
             Download **IlunyaBrowser.exe** below and run it.
 
-            ## Linux (Arch)
+            ## Debian / Ubuntu
+            ```bash
+            sudo apt install ./ilunyabrowser_*_all.deb
+            ```
+
+            ## Arch Linux
             ```bash
             yay -S ilunyabrowser
             ```
-
             AUR: https://aur.archlinux.org/packages/ilunyabrowser
+
+  build-debian:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y debhelper-compat python3-all
+
+      - name: Build .deb package
+        run: |
+          chmod +x packaging/debian/build-deb.sh
+          ./packaging/debian/build-deb.sh
+
+      - name: Publish Debian release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ../ilunyabrowser_*_all.deb

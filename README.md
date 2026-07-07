@@ -11,7 +11,7 @@ Features:
 
 Download **IlunyaBrowser.exe** from [Releases](https://github.com/ilunya100000/IlunyaBrowser/releases/latest) and run it.
 
-Or build from source:
+Build from source:
 
 ```bat
 run.bat
@@ -22,28 +22,44 @@ build.bat
 
 ### Arch Linux (yay)
 
-After the package is published to AUR:
-
 ```bash
 yay -S ilunyabrowser
 ```
 
-From this repository before AUR publish:
+- AUR: https://aur.archlinux.org/packages/ilunyabrowser
+- AUR mirror (PKGBUILD): https://github.com/ilunya100000/ilunyabrowser-aur
+
+If the package is not in AUR yet, install from this repository:
 
 ```bash
 yay -S ./packaging/arch
 ```
 
-AUR package files: [`packaging/aur/`](packaging/aur/)
+Or from the AUR mirror:
+
+```bash
+git clone https://github.com/ilunya100000/ilunyabrowser-aur.git
+cd ilunyabrowser-aur
+makepkg -si
+```
 
 ### Debian / Ubuntu
 
+Download **ilunyabrowser_1.0.0-1_all.deb** from [Releases](https://github.com/ilunya100000/IlunyaBrowser/releases/latest) and install:
+
 ```bash
+sudo apt install ./ilunyabrowser_1.0.0-1_all.deb
+```
+
+Build from source:
+
+```bash
+sudo apt install build-essential debhelper python3-pyqt6 python3-pyqt6.qtwebengine
 ./packaging/debian/build-deb.sh
 sudo apt install ../ilunyabrowser_1.0.0-1_all.deb
 ```
 
-### Fedora / RHEL
+### Fedora / RHEL / Rocky / AlmaLinux
 
 ```bash
 ./packaging/rpm/build-rpm.sh
@@ -55,6 +71,7 @@ sudo dnf install packaging/rpmbuild/RPMS/noarch/ilunyabrowser-*.rpm
 ```bash
 ./packaging/gentoo/prepare-overlay.sh
 sudo eselect repository add ilunyabrowser packaging/gentoo-overlay/ilunyabrowser
+sudo emerge --sync ilunyabrowser
 sudo emerge -av www-client/ilunyabrowser
 ```
 

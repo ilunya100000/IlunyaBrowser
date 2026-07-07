@@ -1,0 +1,64 @@
+name: Publish AUR
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish-aur:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup SSH for AUR
+        env:
+          AUR_SSH_PRIVATE_KEY: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+        run: |
+          if [ -z "${AUR_SSH_PRIVATE_KEY}" ]; then
+            echo "AUR_SSH_PRIVATE_KEY secret is not configured."
+            exit 1
+          fi
+          install -dm700 ~/.ssh
+          printf '%s\n' "${AUR_SSH_PRIVATE_KEY}" > ~/.ssh/aur
+          chmod 600 ~/.ssh/aur
+          cat >> ~/.ssh/config <<'EOF'
+          Host aur.archlinux.org
+            IdentityFile ~/.ssh/aur
+            User aur
+            StrictHostKeyChecking accept-new
+          EOF
+
+      - name: Publish package to AUR
+        run: |
+          TAG="${GITHUB_REF_NAME:-v1.0.0}"
+          VERSION="${TAG#v}"
+          cd packaging/aur
+          sed -i "s/^pkgver=.*/pkgver=${VERSION}/" PKGBUILD
+          sed -i "s/v\$pkgver/${TAG}/" PKGBUILD
+          SHA256="$(curl -fsSL "https://github.com/ilunya100000/IlunyaBrowser/archive/refs/tags/${TAG}.tar.gz" | sha256sum | awk '{print $1}')"
+          sed -i "s/sha256sums=('.*')/sha256sums=('${SHA256}')/" PKGBUILD
+          makepkg --printsrcinfo > .SRCINFO
+
+          if git ls-remote ssh://aur@aur.archlinux.org/ilunyabrowser.git >/dev/null 2>&1; then
+            git clone ssh://aur@aur.archlinux.org/ilunyabrowser.git /tmp/ilunyabrowser-aur
+          else
+            mkdir -p /tmp/ilunyabrowser-aur
+            cd /tmp/ilunyabrowser-aur
+            git init
+            git remote add origin ssh://aur@aur.archlinux.org/ilunyabrowser.git
+            git checkout -b master
+            cd -
+          fi
+
+          cp PKGBUILD .SRCINFO /tmp/ilunyabrowser-aur/
+          cd /tmp/ilunyabrowser-aur
+          git add PKGBUILD .SRCINFO
+          if git diff --cached --quiet; then
+            echo "No AUR changes to publish."
+            exit 0
+          fi
+          git -c user.name="ilunya100000" -c user.email="ilunya100000@users.noreply.github.com" \
+            commit -m "Release ${VERSION}"
+          git push -u origin master
