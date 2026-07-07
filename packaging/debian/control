@@ -1,0 +1,21 @@
+Source: ilunyabrowser
+Section: web
+Priority: optional
+Maintainer: IlunyaBrowser contributors <ilunyabrowser@localhost>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Homepage: https://github.com/ilunya100000/IlunyaBrowser
+Vcs-Browser: https://github.com/ilunya100000/IlunyaBrowser
+Vcs-Git: https://github.com/ilunya100000/IlunyaBrowser.git
+
+Package: ilunyabrowser
+Architecture: all
+Depends: ${misc:Depends},
+         python3:any,
+         python3-pyqt6,
+         python3-pyqt6.qtwebengine
+Description: Minimal Chromium-based browser focused on low RAM usage
+ IlunyaBrowser is a lightweight web browser built on Qt WebEngine (Chromium).
+ It provides Google search, multi-tab browsing, and aggressive memory
+ optimizations for inactive tabs.

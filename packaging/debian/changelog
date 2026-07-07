@@ -1,0 +1,11 @@
+ilunyabrowser (1.0.1-1) unstable; urgency=medium
+
+  * Add release .deb package for Debian/Ubuntu.
+
+ -- IlunyaBrowser contributors <ilunyabrowser@localhost>  Tue, 07 Jul 2026 20:55:00 +0300
+
+ilunyabrowser (1.0.0-1) unstable; urgency=medium
+
+  * Initial Debian/Ubuntu package release.
+
+ -- IlunyaBrowser contributors <ilunyabrowser@localhost>  Tue, 07 Jul 2026 20:00:00 +0300

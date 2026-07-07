@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	:
+
+override_dh_auto_install:
+	mkdir -p debian/ilunyabrowser/usr/bin
+	mkdir -p debian/ilunyabrowser/usr/share/ilunyabrowser
+	mkdir -p debian/ilunyabrowser/usr/share/applications
+	mkdir -p debian/ilunyabrowser/usr/share/icons/hicolor/256x256/apps
+	install -Dm755 packaging/linux/ilunyabrowser debian/ilunyabrowser/usr/bin/ilunyabrowser
+	install -Dm644 ilunya_browser.py debian/ilunyabrowser/usr/share/ilunyabrowser/ilunya_browser.py
+	install -Dm644 make_icon.py debian/ilunyabrowser/usr/share/ilunyabrowser/make_icon.py
+	install -Dm644 requirements-linux.txt debian/ilunyabrowser/usr/share/ilunyabrowser/requirements-linux.txt
+	install -Dm644 VERSION debian/ilunyabrowser/usr/share/ilunyabrowser/VERSION
+	install -Dm644 packaging/linux/ilunyabrowser.desktop debian/ilunyabrowser/usr/share/applications/ilunyabrowser.desktop
+	if [ -f assets/icon.png ]; then \
+		install -Dm644 assets/icon.png debian/ilunyabrowser/usr/share/icons/hicolor/256x256/apps/ilunyabrowser.png; \
+	fi

@@ -9,4 +9,4 @@ build/
 packaging/dist/
 packaging/rpmbuild/
 packaging/gentoo-overlay/
-debian/
+/debian/
